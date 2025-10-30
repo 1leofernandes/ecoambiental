@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecologia Ambiental - Nosso Planeta, Nossa Responsabilidade</title>
+    <title>EcoAmbiental - Preservação e Sustentabilidade para um Futuro Melhor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* Reset e estilos gerais */
+        /* Reset e estilos gerais melhorados */
         * {
             margin: 0;
             padding: 0;
@@ -15,15 +15,18 @@
         }
         
         :root {
-            --primary: #2ecc71;
-            --primary-dark: #27ae60;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --dark: #2c3e50;
-            --light: #ecf0f1;
+            --primary: #00c853;
+            --primary-dark: #009624;
+            --primary-light: #5efc82;
+            --secondary: #2979ff;
+            --accent: #ff4081;
+            --dark: #1a1a2e;
+            --darker: #0f0f1a;
+            --light: #f5f7fa;
             --text: #333;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         }
         
         html {
@@ -32,43 +35,56 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text);
-            background-color: #f9f9f9;
+            background-color: var(--light);
             overflow-x: hidden;
         }
         
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             color: var(--dark);
+            font-weight: 800;
         }
         
         h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
+            font-size: 4rem;
+            line-height: 1.1;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             position: relative;
             display: inline-block;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
         
         h2:after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 0;
-            width: 70px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 2px;
+            width: 80px;
+            height: 5px;
+            background: var(--gradient);
+            border-radius: 5px;
+            transform: scaleX(1);
+            transition: transform 0.5s ease;
+        }
+        
+        h2:hover:after {
+            transform: scaleX(1.5);
         }
         
         p {
             margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
         
         a {
@@ -83,29 +99,47 @@
         
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         .btn {
             display: inline-block;
-            padding: 12px 30px;
-            background: var(--primary);
+            padding: 15px 35px;
+            background: var(--gradient);
             color: white;
             border-radius: 50px;
             font-weight: 600;
             transition: var(--transition);
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem;
             box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover:before {
+            width: 100%;
         }
         
         .btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
         }
         
         .btn-secondary {
@@ -113,7 +147,7 @@
         }
         
         .btn-secondary:hover {
-            background: #2980b9;
+            background: #1a68e6;
         }
         
         .btn-outline {
@@ -128,7 +162,8 @@
         }
         
         section {
-            padding: 100px 0;
+            padding: 120px 0;
+            position: relative;
         }
         
         .text-center {
@@ -137,7 +172,7 @@
         
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
         
         .section-title h2:after {
@@ -145,12 +180,13 @@
             transform: translateX(-50%);
         }
         
-        /* Landing Page */
+        /* Landing Page Melhorada */
         #landing-page {
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(rgba(15, 15, 26, 0.85), rgba(15, 15, 26, 0.9)), url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
             display: flex;
             align-items: center;
@@ -162,63 +198,74 @@
         
         .landing-content {
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
             padding: 0 20px;
         }
         
         .landing-content h1 {
-            font-size: 4rem;
+            font-size: 5rem;
             color: white;
             margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             animation: fadeInDown 1s ease;
+            background: linear-gradient(to right, #fff 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .landing-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease;
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease 0.3s both;
+            color: rgba(255, 255, 255, 0.9);
         }
         
         .landing-content .btn {
-            animation: fadeIn 1.5s ease;
+            animation: fadeIn 1.5s ease 0.6s both;
+            background: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 200, 83, 0.4);
         }
         
-        .floating-elements {
+        .landing-content .btn:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 15px 35px rgba(0, 200, 83, 0.6);
+        }
+        
+        .particles-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
             z-index: 1;
         }
         
-        .floating-element {
+        .particle {
             position: absolute;
-            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            animation: float 15s infinite linear;
+            background: rgba(255, 255, 255, 0.2);
+            animation: floatParticle 20s infinite linear;
         }
         
-        @keyframes float {
+        @keyframes floatParticle {
             0% {
-                transform: translateY(0) rotate(0deg);
+                transform: translateY(100vh) rotate(0deg);
                 opacity: 0;
             }
             10% {
-                opacity: 1;
+                opacity: 0.7;
             }
             90% {
-                opacity: 1;
+                opacity: 0.7;
             }
             100% {
-                transform: translateY(-1000px) rotate(720deg);
+                transform: translateY(-100px) rotate(360deg);
                 opacity: 0;
             }
         }
         
-        /* Header */
+        /* Header melhorado */
         header {
             position: fixed;
             top: 0;
@@ -226,13 +273,14 @@
             width: 100%;
             z-index: 1000;
             background: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
         }
         
         header.scrolled {
-            background: white;
-            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 5px 0;
         }
         
         .navbar {
@@ -245,9 +293,16 @@
         
         .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 900;
             color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
         }
         
         .nav-links {
@@ -256,24 +311,26 @@
         }
         
         .nav-links li {
-            margin-left: 2rem;
+            margin-left: 2.5rem;
         }
         
         .nav-links a {
             color: var(--dark);
-            font-weight: 500;
+            font-weight: 600;
             position: relative;
+            padding: 5px 0;
         }
         
         .nav-links a:after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
-            background: var(--primary);
+            height: 3px;
+            background: var(--gradient);
             transition: var(--transition);
+            border-radius: 3px;
         }
         
         .nav-links a:hover:after {
@@ -283,12 +340,21 @@
         .hamburger {
             display: none;
             cursor: pointer;
+            background: var(--gradient);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: var(--shadow);
         }
         
-        /* Hero Section */
+        /* Hero Section melhorada */
         #hero {
-            padding: 150px 0 100px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 180px 0 120px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e3f2fd 100%);
             position: relative;
             overflow: hidden;
         }
@@ -301,54 +367,75 @@
         
         .hero-text {
             flex: 1;
-            padding-right: 2rem;
+            padding-right: 3rem;
         }
         
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             color: var(--dark);
             margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
             color: #555;
         }
         
         .hero-image {
             flex: 1;
             text-align: center;
+            position: relative;
         }
         
         .hero-image img {
             max-width: 100%;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            animation: floatImage 3s ease-in-out infinite;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            animation: floatImage 4s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+        
+        .hero-image:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 20px;
+            top: 20px;
+            left: 20px;
+            z-index: -1;
+            opacity: 0.3;
+            transform: rotate(5deg);
         }
         
         @keyframes floatImage {
             0% {
-                transform: translateY(0);
+                transform: translateY(0) rotate(0deg);
             }
             50% {
-                transform: translateY(-15px);
+                transform: translateY(-20px) rotate(2deg);
             }
             100% {
-                transform: translateY(0);
+                transform: translateY(0) rotate(0deg);
             }
         }
         
-        /* Introduction Section */
+        /* Introduction Section melhorada */
         #introduction {
             background: white;
+            position: relative;
         }
         
         .intro-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
         }
         
@@ -357,47 +444,76 @@
         }
         
         .intro-image {
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow);
+            position: relative;
         }
         
         .intro-image img {
             width: 100%;
             transition: var(--transition);
+            transform: scale(1);
         }
         
         .intro-image:hover img {
             transform: scale(1.05);
         }
         
-        /* Challenges Section */
+        .intro-image:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: var(--transition);
+            mix-blend-mode: overlay;
+        }
+        
+        .intro-image:hover:after {
+            opacity: 0.2;
+        }
+        
+        /* Challenges Section melhorada */
         #challenges {
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            position: relative;
         }
         
         .challenges-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
         }
         
         .challenge-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        .challenge-card.visible {
+            transform: translateY(0);
+            opacity: 1;
         }
         
         .challenge-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
         
         .challenge-image {
-            height: 200px;
+            height: 250px;
             overflow: hidden;
+            position: relative;
         }
         
         .challenge-image img {
@@ -412,69 +528,104 @@
         }
         
         .challenge-content {
-            padding: 1.5rem;
+            padding: 2rem;
         }
         
         .challenge-content h3 {
             color: var(--dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
         
-        /* Actions Section */
+        .challenge-content p {
+            color: #666;
+        }
+        
+        /* Actions Section melhorada */
         #actions {
             background: white;
+            position: relative;
         }
         
         .infographic {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: white;
-            border-radius: 10px;
-            padding: 2rem;
+            border-radius: 20px;
+            padding: 3rem;
             box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .infographic:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient);
         }
         
         .infographic-item {
             display: flex;
             align-items: center;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            border-radius: 8px;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border-radius: 15px;
             background: #f9f9f9;
             transition: var(--transition);
+            transform: translateX(-50px);
+            opacity: 0;
+        }
+        
+        .infographic-item.visible {
+            transform: translateX(0);
+            opacity: 1;
         }
         
         .infographic-item:hover {
             background: #f0f0f0;
-            transform: translateX(10px);
+            transform: translateX(15px);
         }
         
         .infographic-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--primary);
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1.5rem;
+            margin-right: 2rem;
             color: white;
-            font-size: 1.5rem;
+            font-size: 2rem;
             flex-shrink: 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .infographic-item:hover .infographic-icon {
+            transform: scale(1.1) rotate(10deg);
         }
         
         .infographic-content h3 {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             color: var(--dark);
+            font-size: 1.5rem;
         }
         
-        /* Call to Action */
+        /* Call to Action melhorada */
         #call-to-action {
-            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(rgba(15, 15, 26, 0.85), rgba(15, 15, 26, 0.9)), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
         #call-to-action h2 {
@@ -488,54 +639,76 @@
         }
         
         #call-to-action p {
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
         }
         
-        /* Reflection Section */
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Reflection Section melhorada */
         #reflection {
             background: white;
+            position: relative;
         }
         
         .reflection-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
-            background: #f9f9f9;
-            padding: 3rem;
-            border-radius: 10px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e3f2fd 100%);
+            padding: 4rem;
+            border-radius: 20px;
             box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .reflection-content:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
         }
         
         .reflection-content h2 {
-            margin-bottom: 1.5rem;
-        }
-        
-        .reflection-content p {
-            font-size: 1.1rem;
             margin-bottom: 2rem;
         }
         
-        /* Footer */
+        .reflection-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        /* Footer melhorado */
         footer {
-            background: var(--dark);
+            background: var(--darker);
             color: white;
-            padding: 60px 0 30px;
+            padding: 80px 0 40px;
+            position: relative;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
         
         .footer-column h3 {
             color: white;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
         
         .footer-column h3:after {
@@ -544,7 +717,7 @@
             bottom: 0;
             left: 0;
             width: 50px;
-            height: 2px;
+            height: 3px;
             background: var(--primary);
         }
         
@@ -553,51 +726,58 @@
         }
         
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
         
         .footer-links a {
             color: #bbb;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-right: 10px;
+            width: 20px;
         }
         
         .footer-links a:hover {
             color: var(--primary);
-            padding-left: 5px;
+            padding-left: 10px;
         }
         
         .social-links {
             display: flex;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
         
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 15px;
             color: white;
             transition: var(--transition);
         }
         
         .social-links a:hover {
             background: var(--primary);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 3rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #bbb;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
         
-        /* Animações */
+        /* Animações melhoradas */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -606,7 +786,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -617,7 +797,7 @@
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(-40px);
             }
             to {
                 opacity: 1;
@@ -627,8 +807,8 @@
         
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
         
         .fade-in.visible {
@@ -636,10 +816,45 @@
             transform: translateY(0);
         }
         
-        /* Responsividade */
+        /* Efeito de onda nas seções */
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 50px;
+        }
+        
+        .wave-divider .shape-fill {
+            fill: #FFFFFF;
+        }
+        
+        /* Responsividade melhorada */
+        @media (max-width: 1200px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 3.2rem;
+            }
+        }
+        
         @media (max-width: 992px) {
             h1 {
-                font-size: 2.8rem;
+                font-size: 3rem;
             }
             
             h2 {
@@ -652,17 +867,21 @@
             
             .hero-text, .intro-text {
                 padding-right: 0;
-                margin-bottom: 2rem;
+                margin-bottom: 3rem;
             }
             
             .hero-image, .intro-image {
                 order: -1;
             }
+            
+            .landing-content h1 {
+                font-size: 3.5rem;
+            }
         }
         
         @media (max-width: 768px) {
             .hamburger {
-                display: block;
+                display: flex;
             }
             
             .nav-links {
@@ -675,9 +894,9 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: flex-start;
-                padding-top: 2rem;
+                padding-top: 3rem;
                 transition: var(--transition);
-                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             }
             
             .nav-links.active {
@@ -685,29 +904,15 @@
             }
             
             .nav-links li {
-                margin: 1rem 0;
+                margin: 1.5rem 0;
             }
             
             .landing-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
             section {
-                padding: 70px 0;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            .btn {
-                padding: 10px 25px;
+                padding: 80px 0;
             }
             
             .infographic-item {
@@ -717,7 +922,46 @@
             
             .infographic-icon {
                 margin-right: 0;
-                margin-bottom: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+            }
+            
+            .landing-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .landing-content p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .reflection-content {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .infographic {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
@@ -725,11 +969,11 @@
 <body>
     <!-- Landing Page -->
     <div id="landing-page">
-        <div class="floating-elements" id="floating-elements"></div>
+        <div class="particles-container" id="particles-container"></div>
         <div class="landing-content">
-            <h1>Ecologia Ambiental</h1>
-            <p>Nosso planeta, nossa responsabilidade. Juntos podemos fazer a diferença.</p>
-            <a href="#main-content" class="btn">Entrar no Site</a>
+            <h1>EcoAmbiental</h1>
+            <p>Preservando o planeta hoje para garantir o amanhã. Juntos, criamos um futuro sustentável.</p>
+            <a href="#main-content" class="btn">Explorar Agora <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 
@@ -739,7 +983,7 @@
         <header id="header">
             <div class="container">
                 <nav class="navbar">
-                    <a href="#" class="logo">EcoAmbiental</a>
+                    <a href="#" class="logo"><i class="fas fa-leaf"></i> EcoAmbiental</a>
                     <ul class="nav-links">
                         <li><a href="#hero">Início</a></li>
                         <li><a href="#introduction">Introdução</a></li>
@@ -760,14 +1004,19 @@
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <h1>Cuidar do Planeta: A Nossa Responsabilidade na Ecologia Ambiental</h1>
-                        <p>A ecologia ambiental não é apenas uma disciplina científica, mas uma prática ética e política que envolve a relação entre os seres humanos e o meio ambiente. Segundo Félix Guattari, devemos considerar três ecologias: a do meio ambiente, a das relações sociais e a da subjetividade humana.</p>
-                        <a href="#introduction" class="btn">Saiba Mais</a>
+                        <h1>Ecologia Ambiental: Nossa Responsabilidade Compartilhada</h1>
+                        <p>Descubra como pequenas ações diárias podem transformar nosso planeta. A ecologia ambiental vai além da preservação - é uma revolução no modo como vivemos, consumimos e nos relacionamos com a natureza.</p>
+                        <a href="#introduction" class="btn">Começar Jornada <i class="fas fa-seedling"></i></a>
                     </div>
                     <div class="hero-image">
                         <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="Natureza preservada">
                     </div>
                 </div>
+            </div>
+            <div class="wave-divider">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
             </div>
         </section>
 
@@ -775,15 +1024,15 @@
         <section id="introduction">
             <div class="container">
                 <div class="intro-content">
-                    <div class="intro-text">
-                        <h2>O que é Ecologia Ambiental?</h2>
-                        <p>Para Guattari, a ecologia ambiental vai além da simples preservação da natureza. Envolve uma transformação radical nas formas de produção, consumo e subjetividade, promovendo uma relação mais equilibrada e respeitosa com o planeta.</p>
-                        <p>A crise ecológica atual exige que repensemos nossos modos de vida, nossos valores e nossa relação com o mundo natural. Não se trata apenas de salvar espécies em extinção ou reduzir emissões, mas de criar novas formas de existência que sejam sustentáveis e justas.</p>
-                        <p>A preservação do meio ambiente é fundamental para garantir a sobrevivência não apenas de outras espécies, mas da própria humanidade. Nossas ações hoje determinarão o futuro do planeta para as próximas gerações.</p>
+                    <div class="intro-text fade-in">
+                        <h2>Ecologia Ambiental: Além da Superfície</h2>
+                        <p>Para Guattari, a ecologia ambiental representa uma transformação radical em três dimensões: meio ambiente, relações sociais e subjetividade humana. Não se trata apenas de preservar recursos, mas de reinventar nossa existência no planeta.</p>
+                        <p>A crise ecológica atual exige uma resposta igualmente profunda - repensar valores, economias e modos de vida. Estamos diante de uma encruzilhada histórica onde cada escolha importa.</p>
+                        <p>A verdadeira sustentabilidade emerge quando alinhamos ação individual com mudança sistêmica, criando um futuro onde humanos e natureza prosperam em harmonia.</p>
+                        <a href="#challenges" class="btn btn-outline">Desafios Atuais <i class="fas fa-exclamation-triangle"></i></a>
                     </div>
-                    <div class="intro-image">
-                        <img src="kristaps-ungurs-YjvWnXauZR0-unsplash.jpg" alt="ambiental">
-                        <!-- <img src="https://images.unsplash.com/photo-1569163139394-de4e4f43e4e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Ecologia ambiental"> -->
+                    <div class="intro-image fade-in">
+                        <img src="kristaps-ungurs-YjvWnXauZR0-unsplash.jpg" alt="Ecologia ambiental">
                     </div>
                 </div>
             </div>
@@ -793,39 +1042,43 @@
         <section id="challenges">
             <div class="container">
                 <div class="section-title">
-                    <h2>Desafios Ambientais Atuais</h2>
-                    <p>Conheça os principais problemas que ameaçam nosso planeta</p>
+                    <h2>Desafios Ambientais Urgentes</h2>
+                    <p>Problemas críticos que exigem ação imediata</p>
                 </div>
                 <div class="challenges-grid">
-                    <div class="challenge-card fade-in">
+                    <div class="challenge-card">
                         <div class="challenge-image">
                             <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="Desmatamento">
                         </div>
                         <div class="challenge-content">
-                            <h3>Desmatamento</h3>
-                            <p>O desmatamento, especialmente na Amazônia e no Cerrado, avança rapidamente, colocando em risco a biodiversidade e o equilíbrio climático global.</p>
+                            <h3>Desmatamento Acelerado</h3>
+                            <p>Florestas tropicais, pulmões do planeta, desaparecem a taxas alarmantes. A Amazônia perde o equivalente a um campo de futebol a cada minuto, ameaçando biodiversidade e equilíbrio climático.</p>
                         </div>
                     </div>
-                    <div class="challenge-card fade-in">
+                    <div class="challenge-card">
                         <div class="challenge-image">
                             <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Poluição">
                         </div>
                         <div class="challenge-content">
-                            <h3>Poluição</h3>
-                            <p>A poluição do ar, da água e do solo afeta a saúde humana e dos ecossistemas, sendo um dos maiores desafios ambientais da atualidade.</p>
+                            <h3>Poluição Generalizada</h3>
+                            <p>Do ar que respiramos à água que bebemos, a poluição afeta todos os ecossistemas. Microplásticos já foram encontrados do Ártico às profundezas oceânicas, com impactos ainda desconhecidos.</p>
                         </div>
                     </div>
-                    <div class="challenge-card fade-in">
+                    <div class="challenge-card">
                         <div class="challenge-image">
-                            <img src="noaa-WHLI73X8tE0-unsplash.jpg" alt="">
-                            <!-- <img src="https://images.unsplash.com/photo-1569163139394-de4e4f43e4e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Mudanças Climáticas"> -->
+                            <img src="noaa-WHLI73X8tE0-unsplash.jpg" alt="Mudanças Climáticas">
                         </div>
                         <div class="challenge-content">
-                            <h3>Mudanças Climáticas</h3>
-                            <p>O aquecimento global causado pelas atividades humanas está alterando os padrões climáticos, com consequências graves para todo o planeta.</p>
+                            <h3>Emergência Climática</h3>
+                            <p>Eventos climáticos extremos tornam-se mais frequentes e intensos. O aquecimento global já altera padrões de migração, colheitas e ecossistemas, com consequências imprevisíveis.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="wave-divider">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
             </div>
         </section>
 
@@ -833,44 +1086,44 @@
         <section id="actions">
             <div class="container">
                 <div class="section-title">
-                    <h2>Ações Cotidianas</h2>
-                    <p>Pequenas atitudes que fazem grande diferença</p>
+                    <h2>Ações Transformadoras</h2>
+                    <p>Pequenas mudanças, impacto gigantesco</p>
                 </div>
                 <div class="infographic">
-                    <div class="infographic-item fade-in">
+                    <div class="infographic-item">
                         <div class="infographic-icon">
                             <i class="fas fa-recycle"></i>
                         </div>
                         <div class="infographic-content">
-                            <h3>Reciclar</h3>
-                            <p>Separar corretamente os resíduos recicláveis reduz a quantidade de lixo nos aterros e economiza recursos naturais.</p>
+                            <h3>Reciclagem Inteligente</h3>
+                            <p>Separe resíduos corretamente e reduza até 75% do lixo em aterros. A reciclagem conserva recursos naturais, economiza energia e reduz emissões de gases de efeito estufa.</p>
                         </div>
                     </div>
-                    <div class="infographic-item fade-in">
+                    <div class="infographic-item">
                         <div class="infographic-icon">
                             <i class="fas fa-bolt"></i>
                         </div>
                         <div class="infographic-content">
-                            <h3>Economizar Energia</h3>
-                            <p>Desligar aparelhos eletrônicos quando não estiver usando e optar por lâmpadas LED ajuda a reduzir o consumo de energia.</p>
+                            <h3>Eficiência Energética</h3>
+                            <p>Adote lâmpadas LED, desligue aparelhos em standby e priorize eletrodomésticos eficientes. Cada kWh economizado evita a emissão de aproximadamente 0,5 kg de CO².</p>
                         </div>
                     </div>
-                    <div class="infographic-item fade-in">
+                    <div class="infographic-item">
                         <div class="infographic-icon">
                             <i class="fas fa-tree"></i>
                         </div>
                         <div class="infographic-content">
-                            <h3>Plantar Árvores</h3>
-                            <p>Cada árvore plantada ajuda a absorver CO2, melhorar a qualidade do ar e preservar a biodiversidade.</p>
+                            <h3>Reflorestamento Ativo</h3>
+                            <p>Participe de projetos de plantio ou adote árvores. Uma única árvore madura absorve até 22 kg de CO² por ano e libera oxigênio suficiente para duas pessoas.</p>
                         </div>
                     </div>
-                    <div class="infographic-item fade-in">
+                    <div class="infographic-item">
                         <div class="infographic-icon">
                             <i class="fas fa-ban"></i>
                         </div>
                         <div class="infographic-content">
-                            <h3>Reduzir Plástico</h3>
-                            <p>Evitar o uso de plásticos descartáveis e optar por alternativas sustentáveis reduz a poluição nos oceanos.</p>
+                            <h3>Redução de Plásticos</h3>
+                            <p>Recuse descartáveis, use ecobags e opte por embalagens reutilizáveis. Mais de 8 milhões de toneladas de plástico chegam aos oceanos anualmente, ameaçando a vida marinha.</p>
                         </div>
                     </div>
                 </div>
@@ -881,12 +1134,14 @@
         <section id="call-to-action">
             <div class="container">
                 <div class="section-title">
-                    <h2>Cada Atitude Conta</h2>
-                    <p>Participe da preservação do nosso planeta</p>
+                    <h2>Junte-se ao Movimento</h2>
+                    <p>Sua ação faz a diferença</p>
                 </div>
-                <p>Junte-se a milhares de pessoas que já estão fazendo a diferença. Suas ações individuais, quando somadas, criam um impacto significativo na preservação do meio ambiente.</p>
-                <a href="https://www.youtube.com/watch?v=Ekbd_hSQOhc" class="btn btn-outline" target="_blank">Assista ao Vídeo Educativo</a>
-                <!-- <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-outline" target="_blank">Assista ao Vídeo Educativo</a> -->
+                <p>Mais de 5 milhões de pessoas já adotaram práticas sustentáveis através da nossa comunidade. Suas escolhas individuais, quando somadas, criam um impacto exponencial na preservação do planeta.</p>
+                <div class="cta-buttons">
+                    <a href="https://www.youtube.com/watch?v=Ekbd_hSQOhc" class="btn" target="_blank">Assistir Documentário <i class="fas fa-play-circle"></i></a>
+                    <a href="#reflection" class="btn btn-outline">Refletir <i class="fas fa-brain"></i></a>
+                </div>
             </div>
         </section>
 
@@ -894,10 +1149,11 @@
         <section id="reflection">
             <div class="container">
                 <div class="reflection-content fade-in">
-                    <h2>Reflexão</h2>
-                    <p>"Como minhas ações diárias podem contribuir para um planeta mais saudável?"</p>
-                    <p>Esta pergunta nos convida a repensar nossos hábitos e escolhas cotidianas. Cada decisão, desde o que consumimos até como nos locomovemos, tem impacto no meio ambiente. A mudança começa com a conscientização e a ação individual, mas se fortalece quando nos unimos em torno de um objetivo comum.</p>
-                    <a href="#hero" class="btn">Voltar ao Início</a>
+                    <h2>Momento de Reflexão</h2>
+                    <p>"Que legado ambiental deixarei para as futuras gerações?"</p>
+                    <p>Esta pergunta nos convida a transcender o pensamento imediatista e considerar o impacto de nossas ações no longo prazo. Cada decisão cotidiana - do transporte que escolhemos aos produtos que consumimos - é um voto pelo tipo de mundo que desejamos.</p>
+                    <p>A verdadeira mudança começa quando transformamos consciência em ação consistente. Juntos, podemos reescrever a relação da humanidade com o planeta.</p>
+                    <a href="#hero" class="btn">Reiniciar Jornada <i class="fas fa-redo"></i></a>
                 </div>
             </div>
         </section>
@@ -907,72 +1163,72 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-column">
-                        <h3>EcoAmbiental</h3>
-                        <p>Nosso objetivo é promover a conscientização sobre a importância da ecologia ambiental e inspirar ações positivas em prol do planeta.</p>
+                        <h3><i class="fas fa-leaf"></i> EcoAmbiental</h3>
+                        <p>Transformando consciência em ação para um planeta mais sustentável. Nossa missão é inspirar, educar e mobilizar pessoas para a preservação ambiental.</p>
                         <div class="social-links">
                             <a href="wa.me/5562984894774"><i class="fab fa-whatsapp"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="https://www.instagram.com/lfsoftwares/"><i class="fab fa-instagram"></i></a>
-                            <!-- <a href="#"><i class="fab fa-youtube"></i></a> -->
+                            <a href="#"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                     <div class="footer-column">
-                        <h3>Links Rápidos</h3>
+                        <h3>Navegação</h3>
                         <ul class="footer-links">
-                            <li><a href="#hero">Início</a></li>
-                            <li><a href="#introduction">Introdução</a></li>
-                            <li><a href="#challenges">Desafios</a></li>
-                            <li><a href="#actions">Ações</a></li>
-                            <li><a href="#call-to-action">Participe</a></li>
+                            <li><a href="#hero"><i class="fas fa-home"></i> Início</a></li>
+                            <li><a href="#introduction"><i class="fas fa-info-circle"></i> Introdução</a></li>
+                            <li><a href="#challenges"><i class="fas fa-exclamation-triangle"></i> Desafios</a></li>
+                            <li><a href="#actions"><i class="fas fa-hands-helping"></i> Ações</a></li>
+                            <li><a href="#call-to-action"><i class="fas fa-users"></i> Participe</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
                         <h3>Recursos</h3>
                         <ul class="footer-links">
-                            <li><a href="#">Guia de Reciclagem</a></li>
-                            <li><a href="#">Calculadora de Pegada Ecológica</a></li>
-                            <li><a href="#">Dicas Sustentáveis</a></li>
-                            <li><a href="#">Eventos Ambientais</a></li>
-                            <li><a href="#">Voluntariado</a></li>
+                            <li><a href="#"><i class="fas fa-book"></i> Guia de Reciclagem</a></li>
+                            <li><a href="#"><i class="fas fa-calculator"></i> Calculadora de Pegada</a></li>
+                            <li><a href="#"><i class="fas fa-lightbulb"></i> Dicas Sustentáveis</a></li>
+                            <li><a href="#"><i class="fas fa-calendar-alt"></i> Eventos Ambientais</a></li>
+                            <li><a href="#"><i class="fas fa-hand-holding-heart"></i> Voluntariado</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
                         <h3>Contato</h3>
                         <ul class="footer-links">
-                            <li><i class="fas fa-envelope"></i> lfsoftware004@gmail.com</li>
-                            <li><i class="fas fa-phone"></i> (62) 98489-4774</li>
-                            <li><i class="fas fa-map-marker-alt"></i> Goiás, Brasil</li>
+                            <li><a href="mailto:lfsoftware004@gmail.com"><i class="fas fa-envelope"></i> lfsoftware004@gmail.com</a></li>
+                            <li><a href="tel:+5562984894774"><i class="fas fa-phone"></i> (62) 98489-4774</a></li>
+                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Goiás, Brasil</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="copyright">
-                    <p>&copy; 2023 EcoAmbiental. Todos os direitos reservados. | Desenvolvido com ❤️ para um planeta melhor</p>
+                    <p>&copy; 2023 EcoAmbiental. Todos os direitos reservados. | Desenvolvido com <i class="fas fa-heart" style="color: var(--accent);"></i> para um planeta melhor</p>
                 </div>
             </div>
         </footer>
     </div>
 
     <script>
-        // Elementos flutuantes na landing page
+        // Sistema de partículas melhorado
         document.addEventListener('DOMContentLoaded', function() {
-            const floatingContainer = document.getElementById('floating-elements');
-            const colors = ['rgba(46, 204, 113, 0.3)', 'rgba(52, 152, 219, 0.3)', 'rgba(155, 89, 182, 0.3)', 'rgba(241, 196, 15, 0.3)'];
+            const particlesContainer = document.getElementById('particles-container');
+            const colors = ['rgba(0, 200, 83, 0.5)', 'rgba(41, 121, 255, 0.5)', 'rgba(255, 64, 129, 0.5)', 'rgba(255, 193, 7, 0.5)'];
             
-            for (let i = 0; i < 15; i++) {
-                const element = document.createElement('div');
-                element.classList.add('floating-element');
+            for (let i = 0; i < 25; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
                 
-                const size = Math.random() * 100 + 20;
+                const size = Math.random() * 80 + 20;
                 const color = colors[Math.floor(Math.random() * colors.length)];
                 
-                element.style.width = `${size}px`;
-                element.style.height = `${size}px`;
-                element.style.background = color;
-                element.style.left = `${Math.random() * 100}%`;
-                element.style.animationDelay = `${Math.random() * 15}s`;
-                element.style.animationDuration = `${15 + Math.random() * 20}s`;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.background = color;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                particle.style.animationDuration = `${20 + Math.random() * 30}s`;
                 
-                floatingContainer.appendChild(element);
+                particlesContainer.appendChild(particle);
             }
             
             // Transição da landing page para o conteúdo principal
@@ -1027,8 +1283,10 @@
                 });
             });
             
-            // Scroll animations
+            // Scroll animations melhoradas
             const fadeElements = document.querySelectorAll('.fade-in');
+            const challengeCards = document.querySelectorAll('.challenge-card');
+            const infographicItems = document.querySelectorAll('.infographic-item');
             
             const fadeInOnScroll = function() {
                 fadeElements.forEach(element => {
@@ -1037,6 +1295,28 @@
                     
                     if (elementTop < window.innerHeight - elementVisible) {
                         element.classList.add('visible');
+                    }
+                });
+                
+                challengeCards.forEach((card, index) => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    const cardVisible = 100;
+                    
+                    if (cardTop < window.innerHeight - cardVisible) {
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, index * 200);
+                    }
+                });
+                
+                infographicItems.forEach((item, index) => {
+                    const itemTop = item.getBoundingClientRect().top;
+                    const itemVisible = 100;
+                    
+                    if (itemTop < window.innerHeight - itemVisible) {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, index * 200);
                     }
                 });
             };
