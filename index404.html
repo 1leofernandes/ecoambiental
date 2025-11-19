@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* Reset e estilos gerais melhorados */
+        /* Reset e estilos gerais com tema escuro */
         * {
             margin: 0;
             padding: 0;
@@ -18,15 +18,18 @@
             --primary: #00c853;
             --primary-dark: #009624;
             --primary-light: #5efc82;
-            --secondary: #2979ff;
+            --secondary: #64b5f6;
             --accent: #ff4081;
-            --dark: #1a1a2e;
-            --darker: #0f0f1a;
-            --light: #f5f7fa;
-            --text: #333;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --surface: #1e1e1e;
+            --surface-light: #2d2d2d;
+            --text: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             --transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
             --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --gradient-dark: linear-gradient(135deg, var(--primary-dark) 0%, #1565c0 100%);
         }
         
         html {
@@ -37,14 +40,14 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.7;
             color: var(--text);
-            background-color: var(--light);
+            background-color: var(--dark);
             overflow-x: hidden;
         }
         
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
             margin-bottom: 1.2rem;
-            color: var(--dark);
+            color: var(--text);
             font-weight: 800;
         }
         
@@ -55,7 +58,7 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         h2 {
@@ -85,6 +88,7 @@
         p {
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
+            color: var(--text-muted);
         }
         
         a {
@@ -139,7 +143,7 @@
         
         .btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
         }
         
         .btn-secondary {
@@ -147,7 +151,7 @@
         }
         
         .btn-secondary:hover {
-            background: #1a68e6;
+            background: #42a5f5;
         }
         
         .btn-outline {
@@ -180,10 +184,10 @@
             transform: translateX(-50%);
         }
         
-        /* Landing Page Melhorada */
+        /* Landing Page com tema escuro */
         #landing-page {
             height: 100vh;
-            background: linear-gradient(rgba(15, 15, 26, 0.85), rgba(15, 15, 26, 0.9)), url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.9)), url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -206,7 +210,7 @@
             font-size: 5rem;
             color: white;
             margin-bottom: 1.5rem;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             animation: fadeInDown 1s ease;
             background: linear-gradient(to right, #fff 0%, var(--primary-light) 100%);
             -webkit-background-clip: text;
@@ -244,7 +248,7 @@
         .particle {
             position: absolute;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 200, 83, 0.3);
             animation: floatParticle 20s infinite linear;
         }
         
@@ -265,21 +269,21 @@
             }
         }
         
-        /* Header melhorado */
+        /* Header com tema escuro */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(30, 30, 30, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             transition: var(--transition);
         }
         
         header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(30, 30, 30, 0.98);
             padding: 5px 0;
         }
         
@@ -315,7 +319,7 @@
         }
         
         .nav-links a {
-            color: var(--dark);
+            color: var(--text);
             font-weight: 600;
             position: relative;
             padding: 5px 0;
@@ -351,10 +355,10 @@
             box-shadow: var(--shadow);
         }
         
-        /* Hero Section melhorada */
+        /* Hero Section com tema escuro */
         #hero {
             padding: 180px 0 120px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e3f2fd 100%);
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -372,7 +376,7 @@
         
         .hero-text h1 {
             font-size: 3.8rem;
-            color: var(--dark);
+            color: var(--text);
             margin-bottom: 1.5rem;
             background: var(--gradient);
             -webkit-background-clip: text;
@@ -383,7 +387,7 @@
         .hero-text p {
             font-size: 1.3rem;
             margin-bottom: 2.5rem;
-            color: #555;
+            color: var(--text-muted);
         }
         
         .hero-image {
@@ -395,7 +399,7 @@
         .hero-image img {
             max-width: 100%;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             animation: floatImage 4s ease-in-out infinite;
             transform-style: preserve-3d;
         }
@@ -426,9 +430,9 @@
             }
         }
         
-        /* Introduction Section melhorada */
+        /* Introduction Section com tema escuro */
         #introduction {
-            background: white;
+            background: var(--surface);
             position: relative;
         }
         
@@ -477,9 +481,9 @@
             opacity: 0.2;
         }
         
-        /* Challenges Section melhorada */
+        /* Challenges Section com tema escuro */
         #challenges {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            background: linear-gradient(135deg, var(--surface-light) 0%, var(--surface) 100%);
             position: relative;
         }
         
@@ -490,7 +494,7 @@
         }
         
         .challenge-card {
-            background: white;
+            background: var(--surface);
             border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow);
@@ -498,6 +502,7 @@
             position: relative;
             transform: translateY(50px);
             opacity: 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .challenge-card.visible {
@@ -507,7 +512,8 @@
         
         .challenge-card:hover {
             transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 200, 83, 0.2);
         }
         
         .challenge-image {
@@ -532,30 +538,31 @@
         }
         
         .challenge-content h3 {
-            color: var(--dark);
+            color: var(--text);
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
         
         .challenge-content p {
-            color: #666;
+            color: var(--text-muted);
         }
         
-        /* Actions Section melhorada */
+        /* Actions Section com tema escuro */
         #actions {
-            background: white;
+            background: var(--surface);
             position: relative;
         }
         
         .infographic {
             max-width: 900px;
             margin: 0 auto;
-            background: white;
+            background: var(--surface-light);
             border-radius: 20px;
             padding: 3rem;
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .infographic:before {
@@ -574,10 +581,11 @@
             margin-bottom: 3rem;
             padding: 1.5rem;
             border-radius: 15px;
-            background: #f9f9f9;
+            background: var(--surface);
             transition: var(--transition);
             transform: translateX(-50px);
             opacity: 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .infographic-item.visible {
@@ -586,8 +594,9 @@
         }
         
         .infographic-item:hover {
-            background: #f0f0f0;
+            background: var(--surface-light);
             transform: translateX(15px);
+            border-color: rgba(0, 200, 83, 0.1);
         }
         
         .infographic-icon {
@@ -602,7 +611,7 @@
             color: white;
             font-size: 2rem;
             flex-shrink: 0;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             transition: var(--transition);
         }
         
@@ -612,13 +621,13 @@
         
         .infographic-content h3 {
             margin-bottom: 0.8rem;
-            color: var(--dark);
+            color: var(--text);
             font-size: 1.5rem;
         }
         
-        /* Call to Action melhorada */
+        /* Call to Action com tema escuro */
         #call-to-action {
-            background: linear-gradient(rgba(15, 15, 26, 0.85), rgba(15, 15, 26, 0.9)), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.9)), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -652,9 +661,9 @@
             flex-wrap: wrap;
         }
         
-        /* Reflection Section melhorada */
+        /* Reflection Section com tema escuro */
         #reflection {
-            background: white;
+            background: var(--surface);
             position: relative;
         }
         
@@ -662,12 +671,13 @@
             max-width: 900px;
             margin: 0 auto;
             text-align: center;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e3f2fd 100%);
+            background: linear-gradient(135deg, var(--surface-light) 0%, var(--surface) 100%);
             padding: 4rem;
             border-radius: 20px;
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .reflection-content:before {
@@ -689,7 +699,7 @@
             margin-bottom: 2.5rem;
         }
         
-        /* Footer melhorado */
+        /* Footer com tema escuro */
         footer {
             background: var(--darker);
             color: white;
@@ -730,7 +740,7 @@
         }
         
         .footer-links a {
-            color: #bbb;
+            color: var(--text-muted);
             transition: var(--transition);
             display: flex;
             align-items: center;
@@ -773,7 +783,7 @@
             text-align: center;
             padding-top: 3rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #bbb;
+            color: var(--text-muted);
             font-size: 1rem;
         }
         
@@ -834,7 +844,7 @@
         }
         
         .wave-divider .shape-fill {
-            fill: #FFFFFF;
+            fill: var(--surface);
         }
         
         /* Responsividade melhorada */
@@ -890,13 +900,13 @@
                 left: -100%;
                 width: 100%;
                 height: calc(100vh - 80px);
-                background: white;
+                background: var(--surface);
                 flex-direction: column;
                 align-items: center;
                 justify-content: flex-start;
                 padding-top: 3rem;
                 transition: var(--transition);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             }
             
             .nav-links.active {
@@ -971,7 +981,7 @@
     <div id="landing-page">
         <div class="particles-container" id="particles-container"></div>
         <div class="landing-content">
-            <h1>EcoAmbiental</h1>
+            <h1>Ecologia Ambiental</h1>
             <p>Preservando o planeta hoje para garantir o amanhã. Juntos, criamos um futuro sustentável.</p>
             <a href="#main-content" class="btn">Explorar Agora <i class="fas fa-arrow-right"></i></a>
         </div>
@@ -1139,7 +1149,7 @@
                 </div>
                 <p>Mais de 5 milhões de pessoas já adotaram práticas sustentáveis através da nossa comunidade. Suas escolhas individuais, quando somadas, criam um impacto exponencial na preservação do planeta.</p>
                 <div class="cta-buttons">
-                    <a href="https://www.youtube.com/watch?v=Ekbd_hSQOhc" class="btn" target="_blank">Assistir Documentário <i class="fas fa-play-circle"></i></a>
+                    <a href="https://www.youtube.com/watch?v=BB7cRi5wwh0" class="btn" target="_blank">Assistir Documentário <i class="fas fa-play-circle"></i></a>
                     <a href="#reflection" class="btn btn-outline">Refletir <i class="fas fa-brain"></i></a>
                 </div>
             </div>
@@ -1212,7 +1222,7 @@
         // Sistema de partículas melhorado
         document.addEventListener('DOMContentLoaded', function() {
             const particlesContainer = document.getElementById('particles-container');
-            const colors = ['rgba(0, 200, 83, 0.5)', 'rgba(41, 121, 255, 0.5)', 'rgba(255, 64, 129, 0.5)', 'rgba(255, 193, 7, 0.5)'];
+            const colors = ['rgba(0, 200, 83, 0.5)', 'rgba(100, 181, 246, 0.5)', 'rgba(255, 64, 129, 0.5)', 'rgba(255, 193, 7, 0.5)'];
             
             for (let i = 0; i < 25; i++) {
                 const particle = document.createElement('div');
